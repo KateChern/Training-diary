@@ -1,0 +1,37 @@
+
+.container {
+    display: block;
+    text-align: center;
+    padding: 1rem 22px 2rem 22px;
+    font-size: 0.8rem;
+    background: rgba(71, 129, 137, 0.54);
+    border-radius: 30px;
+    margin: 0 0 2rem 0;
+}
+ol {
+    padding: 0 ;
+    margin: 2rem auto;
+}
+li {
+   display: flex; 
+   justify-content: space-between;
+   text-align: left ;
+   background: rgba(54, 107, 114, 0.54);
+   margin: 10px -5px;
+   border-radius: 10px;
+   padding: 5px 10px;
+   font-size: 0.9rem;
+}
+
+.description {
+    text-align: left ;
+    line-height: 1.5rem; 
+    background: rgba(65, 113, 119, 0.54);
+    margin: 10px -5px;
+    border-radius: 10px;
+    padding: 20px 5px;
+    font-size: 0.8rem;
+}
+.title {
+    margin: 1.5rem auto;
+}

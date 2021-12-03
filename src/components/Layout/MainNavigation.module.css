@@ -1,0 +1,82 @@
+.header {
+    width: 100%;
+    height: 4rem;
+    background-color: #9F9D9D;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0 3%; */
+    border: black 0.5px solid;
+    
+  }
+  .navigationContainer {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 25vh;
+    margin-left: 22px;
+  }
+
+  .navigationContainer img {
+      margin: 0 5%;
+  }
+  .logo {
+    font-family: 'Ribeye Marrow', cursive;
+    font-size: 1rem;
+    color: black;
+    margin: 0;
+    /* letter-spacing: 0.3px; */
+    font-weight: 550;
+
+  }
+  nav img {
+    margin: 0 1.5rem;
+    align-self: center;
+    background: rgba(68, 68, 68, 0.24);
+    border: 1px solid #648896;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    padding: 5px;
+    
+  }
+
+  /* .header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+  } */
+  
+  /* .header li {
+    margin: 0 1rem;
+  } */
+  
+  .header a {
+    text-decoration: none;
+    color: white;
+    /* font-weight: bold; */
+  }
+  
+  /* .header button {
+    font: inherit;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .header a:hover {
+    color: #c291e2;
+  }
+  
+  .header button:hover {
+    background-color: #c291e2;
+    color: #38015c;
+  } */
