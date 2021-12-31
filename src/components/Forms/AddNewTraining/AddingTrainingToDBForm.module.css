@@ -1,0 +1,65 @@
+.form {
+    width: 85%;
+    max-width: 25rem;
+    margin: 2rem 1rem;
+  }
+  
+  .control {
+    margin-bottom: 0.5rem;
+  }
+  
+  .control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #353336;
+    display: block;
+  }
+  
+  .control input {
+    display: block;
+    font: inherit;
+    width: 100%;
+    height: 2rem;
+    border-radius: 4px;
+    border: 1px solid #38015c;
+    padding: 0.25rem;
+    background-color: #f7f0fa;
+    margin: 1rem auto;
+  }
+  
+  .action {
+    margin-top: 1.5rem;
+  }
+  
+  .action button {
+    font: inherit;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    background-color: #38015c;
+    color: white;
+    border: 1px solid #38015c;
+  }
+  
+  .action button:hover {
+    background-color: #540d83;
+    border-color: #540d83;
+  }
+
+  .exercises {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .exercises input {
+    width: 90%;
+  }
+
+  h4 {
+    font: inherit;
+    font-weight: 500;
+  }

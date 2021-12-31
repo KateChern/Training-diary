@@ -42,12 +42,12 @@ const list = [
 
 // const date = (training.date).split(',')[0]
 
-const TrainingDetails = ({ match}) => {
+const TrainingDetails = ( match) => {
 
     // const { trainingId } = match.params;
     // const training = useSelector((state) => selectPostById(state, postId))
     
-    console.log(match)
+    console.log(match.params)
     return (
         <Fragment>
             <SecondNavigationBar />

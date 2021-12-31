@@ -1,0 +1,74 @@
+.ListContainer {
+    background: rgba(83, 73, 73, 0.54);
+    border-radius: 24px;
+    margin: 2rem 0;
+}
+
+.container {
+    height: 9rem;
+    /* background: #B1E4E4; */
+    box-shadow: 0px 4px 4px rgba(88, 114, 112, 0.48);
+    border-radius: 24px;
+    margin: 0.5rem 0;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Reem Kufi', sans-serif;
+    padding: 1rem ;
+    
+    
+}
+.trainingName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    background: #7297b9;
+    box-shadow: 0px 4px 4px rgba(88, 114, 112, 0.48);
+    border-radius: 24px;
+    border: #476489 solid 1px;
+    /* margin: 0.5rem 0; */
+   
+    box-sizing: border-box;
+    font-family: 'Reem Kufi', sans-serif;
+    /* padding: 2rem ; */
+}
+
+.title {
+    margin: 0.5rem 0 -1rem 0;
+    font-size: 1.5rem;
+    font-weight: 550; 
+    /* color: #478189;  */
+}
+
+.container  p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+
+.greenLight {
+    background: #B1E4E4;
+
+}
+.greenDark {
+    background: #478189;
+    
+}
+.blueLight {
+    background: #BCE2FD;
+    
+}
+.blueDark {
+    background: #5EBDFF;
+    
+}
+.red {
+    background: #EF717A;
+    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
