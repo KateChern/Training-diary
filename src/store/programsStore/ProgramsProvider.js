@@ -1,6 +1,5 @@
 import { useReducer, useEffect, useCallback } from "react";
 import ProgramsContext from "./programs-context";
-// import { v4 as uuidv4 } from "uuid";
 import { collection, getDocs } from "firebase/firestore/lite";
 import db from "../../firebase-functions/firebase";
 
@@ -70,17 +69,13 @@ const ProgramFetchingProvider = (props) => {
     const programCol = collection(db, "programs");
     const programSnapshot = await getDocs(programCol);
     const programList = programSnapshot.docs.map((doc) => doc.data());
-    // console.log(programList);
-
     dispatchProgramAction({ type: "FETCH_SUCCESS", payload: programList });
     return programList;
   }, []);
 
   useEffect(() => {
     fetchProgramsHandler();
-    // fetchTrainingsHandler();
-    console.log("dispatched");
-  }, []);
+  }, [fetchProgramsHandler]);
 
   const addExerciseToDBHandler = (exercise) => {
     dispatchProgramAction({ type: "ADD", payload: exercise });

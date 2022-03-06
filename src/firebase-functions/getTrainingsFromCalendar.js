@@ -1,9 +1,10 @@
 import { collection, getDocs, query, where } from "firebase/firestore/lite";
 import db from "./firebase";
-
+/* eslint-disable */
 export const fetchingTrainings = async (uid) => {
   const dates = JSON.parse(localStorage.getItem("dates"));
   const sortedDates = dates && dates.sort((a, b) => a - b);
+
   const q = query(collection(db, "users"), where("id", "==", uid));
   const trainingsSnapshot = await getDocs(q);
   const trainingsList = trainingsSnapshot.docs.map((doc) => doc.data());

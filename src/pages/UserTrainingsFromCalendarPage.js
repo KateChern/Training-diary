@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import TrainingsFromCalendar from "../components/UserTrainings/TrainingsListFromCalendar/TrainingsFromCalendar";
 import SecondNavigationBar from "../components/Layout/SecondsNavigation/SecondNavigationBar";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -27,7 +27,7 @@ const UserTrainingsFromCalendarPage = () => {
     }
   });
 
-  const fetchUserTrainingsHandler = () => {
+  const fetchUserTrainingsHandler = useCallback(() => {
     return fetchingTrainings(uid)
       .then((response) => {
         setUserTrainings(response);
@@ -36,11 +36,11 @@ const UserTrainingsFromCalendarPage = () => {
       .catch((err) => {
         setError(err);
       });
-  };
+  }, [uid]);
 
   useEffect(() => {
     fetchUserTrainingsHandler();
-  }, []);
+  }, [fetchUserTrainingsHandler]);
 
   return (
     <React.Fragment>
