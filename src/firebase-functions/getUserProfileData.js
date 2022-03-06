@@ -1,5 +1,4 @@
 import { collection, getDocs, query, where } from "firebase/firestore/lite";
-// import db from "../../../firebase";
 import db from "./firebase";
 
 export const fetchUser = async (uid) => {

@@ -122,8 +122,6 @@ const TrainingFetchingProvider = (props) => {
       type: "SUCCESS_USER",
       payload: filteredTraining,
     });
-
-    console.log(filteredTraining);
     return filteredTraining[0];
   };
   const fetchSelectedTraining = async (params) => {
@@ -135,17 +133,11 @@ const TrainingFetchingProvider = (props) => {
     );
     const trainingsSnapshot = await getDocs(q);
     const trainingsList = trainingsSnapshot.docs.map((doc) => doc.data());
-    console.log(trainingsList);
-    // const filteredTraining = trainingsList[0].userTrainings.filter(
-    //   (training) => training.id === params.trainingId
-    // );
+
     dispatchTrainingsAction({
       type: "SUCCESS_FILTERED_ALL",
       payload: trainingsList,
     });
-
-    // console.log(filteredTraining);
-    // return filteredTraining[0];
   };
 
   const trainingsContext = {
@@ -167,14 +159,3 @@ const TrainingFetchingProvider = (props) => {
 };
 
 export default TrainingFetchingProvider;
-
-//   const q = query(
-//   collection(db, "trainings"),
-//   where("id", "==", params.trainingId)
-// );
-// const fetchTrainingsHandler = useCallback(async () => {
-//   const trainingsSnapshot = await getDocs(q);
-//   const trainingsList = trainingsSnapshot.docs.map((doc) => doc.data());
-
-//   setTraining(trainingsList[0]);
-// }, []);

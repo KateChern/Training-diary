@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState, useCallback } from "react";
 import ProgramsContext from "./store/programsStore/programs-context";
 import Layout from "./components/Layout/Layout";
 import TrainingFetchingProvider from "./store/trainingsStore/TrainingsProvider";
@@ -51,17 +51,17 @@ function App() {
 
   const [userData, setUserData] = useState(profileData);
 
-  const fetchUserHandler = () => {
+  const fetchUserHandler = useCallback(() => {
     return fetchUser(uid)
       .then((response) => {
         setUserData(response);
       })
       .catch((err) => {});
-  };
+  }, [uid]);
   useEffect(() => {
     context.fetchPrograms();
     fetchUserHandler();
-  }, [context]);
+  }, [fetchUserHandler, context]);
 
   return (
     <Router>
@@ -71,7 +71,7 @@ function App() {
             <Routes>
               {userState && userData.length === 0 ? (
                 <Route path="/" exact element={<HomePage />} />
-              ) : userState && userData.length != 0 ? (
+              ) : userState && userData.length !== 0 ? (
                 <Route path="/" exact element={<ProgramsPage />} />
               ) : (
                 !userState && <Route path="/" element={<AuthPage />} />

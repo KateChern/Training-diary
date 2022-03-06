@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import classes from "./AccountInfo.module.css";
 import { Link } from "react-router-dom";
@@ -30,23 +30,22 @@ const AccountInfo = () => {
     }
   });
 
-  const fetchUserHandler = () => {
+  const fetchUserHandler = useCallback(() => {
     return fetchUser(uid)
       .then((response) => {
-        console.log("User Data");
         setUserData(response);
       })
       .catch((err) => {
         console.log(err);
         setError(err);
       });
-  };
+  }, [uid]);
   const user =
     userData && userData.length >= 1 && userData[userData.length - 1];
 
   useEffect(() => {
     fetchUserHandler();
-  }, [userData.length]);
+  }, [userData.length, fetchUserHandler]);
 
   let context = error ? (
     <p className={classes.message}>Something went wrong, try again</p>

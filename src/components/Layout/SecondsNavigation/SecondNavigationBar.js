@@ -38,18 +38,18 @@ const SecondNavigationBar = ({ fetchingTrainings }) => {
     }
   });
 
-  const fetchUserHandler = () => {
-    return fetchUser(uid)
-      .then((response) => {
-        setUserData(response);
-      })
-      .catch((err) => {
-        setError(err);
-      });
-  };
   useEffect(() => {
+    const fetchUserHandler = () => {
+      return fetchUser(uid)
+        .then((response) => {
+          setUserData(response);
+        })
+        .catch((err) => {
+          setError(err);
+        });
+    };
     fetchUserHandler();
-  }, [userData.length]);
+  }, [userData.length, uid]);
 
   const user =
     userData && userData.length >= 1 && userData[userData.length - 1];

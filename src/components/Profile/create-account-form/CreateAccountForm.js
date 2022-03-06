@@ -55,9 +55,7 @@ const CreateAccountForm = () => {
         }),
       });
       return docRef;
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
   const formIsValid = firstNameIsValid & lastIsValid;
 

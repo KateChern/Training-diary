@@ -33,7 +33,7 @@ const UserTrainings = () => {
     const trainingsList = trainingsSnapshot.docs.map((doc) => doc.data());
     setUserTrainings(trainingsList[0].userTrainings);
     return trainingsList;
-  }, []);
+  }, [userState]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     fetchUserTrainingsHandler();

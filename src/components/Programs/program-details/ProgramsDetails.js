@@ -11,9 +11,9 @@ const ProgramDetails = ({ program }) => {
   const ctx = useContext(TrainingsContext);
 
   useEffect(() => {
-    console.log(program, "program params");
+    console.log("User Data");
     ctx.fetchTrainings();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={classes.ListContainer}>

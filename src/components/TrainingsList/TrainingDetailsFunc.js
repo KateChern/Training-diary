@@ -48,11 +48,11 @@ const TrainingDetailsFunc = () => {
       .catch((err) => {
         console.log(err.message);
       });
-  }, []);
+  }, [params]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     fetchTrainingsHandler();
-  }, []);
+  }, [fetchTrainingsHandler]);
 
   const training = ctx.filtered && ctx.filtered[0];
 
