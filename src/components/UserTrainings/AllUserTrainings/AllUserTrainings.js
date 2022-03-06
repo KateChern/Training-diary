@@ -3,7 +3,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import classes from "./AllUserTrainings.module.css";
 import TrainingCard from "../../TrainingsList/TrainingCard";
 import { collection, getDocs, query, where } from "firebase/firestore/lite";
-import db from "../../../firebase";
+import db from "../../../firebase-functions/firebase";
 const UserTrainings = () => {
   const auth = getAuth();
 
@@ -37,7 +37,7 @@ const UserTrainings = () => {
 
   useEffect(() => {
     fetchUserTrainingsHandler();
-  }, []);
+  }, [fetchUserTrainingsHandler]);
   const context =
     !userTrainings || userTrainings.length === 0 ? (
       <p className={classes.message}>No trainings added yet</p>

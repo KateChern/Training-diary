@@ -10,7 +10,7 @@ import {
   updateDoc,
   arrayUnion,
 } from "firebase/firestore/lite";
-import db from "../../../firebase";
+import db from "../../../firebase-functions/firebase";
 
 const prList = [
   "beautiful ad stunning 2.0",
@@ -74,30 +74,35 @@ const AddingTrainingToDBForm = () => {
 
   const formValid = difficultyLevelIsValid & descriptionIsValid;
   const exerciseFormIsValid = exercisesIsValid & numberIsValid;
+  const programCollectionRef = doc(db, `programs`, `${option}`);
+  const trainingCollectionRef = collection(db, `trainings`);
 
-  const submitForm = async () => {
-    try {
-      const programCollectionRef = doc(db, `programs`, `${option}`);
-      const trainingCollectionRef = collection(db, `trainings`);
-
-      const docRef = await updateDoc(programCollectionRef, {
-        trainings: arrayUnion({
-          type: type,
-          difficultyLevel: difficultyLevelValue,
-          description: descriptionValue,
-          exercises: trainingCtx.exercises,
-          id: id,
-        }),
-      });
-
-      const docRef2 = await setDoc(doc(trainingCollectionRef), {
+  const addToPrograms = async () => {
+    const docRef = await updateDoc(programCollectionRef, {
+      trainings: arrayUnion({
         type: type,
         difficultyLevel: difficultyLevelValue,
         description: descriptionValue,
         exercises: trainingCtx.exercises,
         id: id,
-      });
-      return docRef, docRef2;
+      }),
+    });
+    return docRef;
+  };
+  const addToTrainings = async () => {
+    const docRef2 = await setDoc(doc(trainingCollectionRef), {
+      type: type,
+      difficultyLevel: difficultyLevelValue,
+      description: descriptionValue,
+      exercises: trainingCtx.exercises,
+      id: id,
+    });
+    return docRef2;
+  };
+  const submitForm = () => {
+    try {
+      addToPrograms();
+      addToTrainings();
     } catch (e) {}
   };
 

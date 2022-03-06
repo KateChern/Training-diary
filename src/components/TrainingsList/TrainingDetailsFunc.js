@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useCallback, useContext } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore/lite";
-import db from "../../firebase";
+import db from "../../firebase-functions/firebase";
 import TrainingDetailsCard from "../Trainings/trainingDetailsCard";
 import SubmittedForm from "../Helpers/SubmittedFormMessage/SubmittedForm";
 import { v4 as uuidv4 } from "uuid";
@@ -33,7 +33,6 @@ const TrainingDetailsFunc = () => {
   const [userState, setUserState] = useState(uid);
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user.uid, "uid");
       setUserState(user.uid);
     } else {
       setUserState(uid);
@@ -69,7 +68,7 @@ const TrainingDetailsFunc = () => {
   const currentTime = new Date();
   const submitCompleted = async () => {
     try {
-      const userTrainingsCollectionRef = doc(db, `users`, `${uid}`);
+      const userTrainingsCollectionRef = doc(db, `users`, `${userState}`);
       const docRef = await updateDoc(userTrainingsCollectionRef, {
         userTrainings: arrayUnion({
           date: currentTime,

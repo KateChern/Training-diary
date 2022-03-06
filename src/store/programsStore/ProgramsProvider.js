@@ -2,7 +2,7 @@ import { useReducer, useEffect, useCallback } from "react";
 import ProgramsContext from "./programs-context";
 // import { v4 as uuidv4 } from "uuid";
 import { collection, getDocs } from "firebase/firestore/lite";
-import db from "../../firebase";
+import db from "../../firebase-functions/firebase";
 
 const defaultProgramState = {
   allPrograms: [],

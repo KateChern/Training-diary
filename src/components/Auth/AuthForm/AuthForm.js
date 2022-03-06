@@ -7,9 +7,9 @@ import { getAuth } from "firebase/auth";
 import {
   registerWithEmailAndPassword,
   logInWithEmailAndPassword,
-} from "../../../firebase";
+} from "../../../firebase-functions/firebase";
 import { collection, doc, setDoc } from "firebase/firestore/lite";
-import db from "../../../firebase";
+import db from "../../../firebase-functions/firebase";
 
 const isEmail = (value) => value.includes("@");
 const isPassword = (value) =>

@@ -50,18 +50,13 @@ function App() {
   ];
 
   const [userData, setUserData] = useState(profileData);
-  const [error, setError] = useState(null);
 
   const fetchUserHandler = () => {
     return fetchUser(uid)
       .then((response) => {
-        console.log("User Data");
         setUserData(response);
       })
-      .catch((err) => {
-        console.log(err);
-        setError(err);
-      });
+      .catch((err) => {});
   };
   useEffect(() => {
     context.fetchPrograms();

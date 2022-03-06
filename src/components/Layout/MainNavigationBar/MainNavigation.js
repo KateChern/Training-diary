@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import classes from "./MainNavigation.module.css";
-import { logout } from "../../../firebase";
+import { logout } from "../../../firebase-functions/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import weightClock from "../../../icons/weightClock.svg";
 

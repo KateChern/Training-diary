@@ -1,7 +1,7 @@
 import classes from "./AddingProgramToDBForm.module.css";
 import useInput from "../../Auth/use-inputs-hook";
 import { collection, doc, setDoc } from "firebase/firestore/lite";
-import db from "../../../firebase";
+import db from "../../../firebase-functions/firebase";
 import { v4 as uuidv4 } from "uuid";
 
 const isNotEmpty = (value) => value.trim() !== "";

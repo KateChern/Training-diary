@@ -1,5 +1,5 @@
 import { collection, getDocs, query, where } from "firebase/firestore/lite";
-import db from "../firebase";
+import db from "./firebase";
 
 export const fetchingTrainings = async (uid) => {
   const dates = JSON.parse(localStorage.getItem("dates"));
