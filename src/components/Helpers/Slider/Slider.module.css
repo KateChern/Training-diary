@@ -1,0 +1,50 @@
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-top: 3rem;
+  width: 60%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 60%;
+  height: 1px;
+
+  margin: auto;
+  background: rgb(34, 34, 34);
+  border-radius: 3px;
+}
+
+.horizontal-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 35px;
+  height: 35px;
+  background: url("../../../icons/fire.svg");
+  background-position: top;
+  cursor: pointer;
+  margin-top: -33px;
+}
+@media only screen and (min-width: 960px) {
+  .horizontal-slider::-webkit-slider-thumb {
+    margin-top: -35px;
+    background-size: 105%;
+  }
+  input[type="range"] {
+    width: 50%;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .horizontal-slider::-webkit-slider-thumb {
+    margin-top: -48px;
+    /* background-size: 105%; */
+    height: 3rem;
+    width: 3rem;
+  }
+  input[type="range"] {
+    width: 60%;
+    margin-top: 4rem;
+  }
+}

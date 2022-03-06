@@ -1,0 +1,47 @@
+.header {
+  text-align: center;
+  margin: 8vh auto 6vh auto;
+  font-family: Raleway;
+  font-size: 1.1rem;
+  color: rgb(44, 44, 44);
+}
+.msg {
+  max-width: 60vh;
+  margin: 8vh auto;
+}
+.listContainer {
+  background: rgba(116, 108, 108, 0.54);
+  border-radius: 24px;
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 900px;
+}
+@media only screen and (min-width: 960px) {
+  .header {
+    font-size: 1.4rem;
+    color: rgb(44, 44, 44);
+  }
+  .msg {
+    font-size: 1.3rem;
+  }
+  .trainingName {
+    height: 5rem;
+    max-width: 60vh;
+    font-size: 1.15rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .header {
+    font-size: 1.6rem;
+  }
+  .trainingName {
+    height: 6rem;
+    max-width: 65vh;
+    font-size: 1.6rem;
+  }
+  .msg {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}

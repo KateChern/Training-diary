@@ -1,0 +1,11 @@
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+
+.calendar-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 246px;
+  min-width: 240px;
+  margin: 0 auto;
+}

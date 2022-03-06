@@ -1,0 +1,80 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(53, 53, 53, 0.54);
+  border-radius: 20px;
+  padding: 3vh 0 3vh 0;
+  margin: 1vh auto 5vh auto;
+  max-width: 800px;
+}
+
+h2 {
+  background: #d0cece;
+  border-radius: 20px;
+  width: 29vh;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Raleway;
+  font-size: 1.2rem;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1vh auto;
+}
+.action input,
+.action select {
+  background: #d0cece;
+  border-radius: 20px;
+  width: 29vh;
+  height: 4.5vh;
+  border-width: 0px;
+  text-align: center;
+  font-family: Raleway;
+  font-size: 0.9rem;
+}
+option {
+  font-family: Raleway;
+  font-size: 1rem;
+}
+label {
+  font-family: Raleway;
+  font-size: 1.1rem;
+  color: #ffffff;
+  line-height: 20px;
+  margin: 1vh auto;
+}
+
+button {
+  margin: 1vh auto;
+}
+@media only screen and (min-width: 960px) {
+  label {
+    font-size: 1.2rem;
+  }
+  .mainContainer h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  label {
+    font-size: 1.3rem;
+  }
+  option {
+    font-size: 1.3rem;
+  }
+  .action input,
+  .action select {
+    font-size: 1.3rem;
+  }
+  .mainContainer h2 {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,109 @@
+.ListContainer {
+  background: rgba(116, 108, 108, 0.54);
+  border-radius: 24px;
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 900px;
+}
+
+.container {
+  height: 9rem;
+  max-width: 55vh;
+  box-shadow: 0px 4px 4px rgba(88, 114, 112, 0.48);
+  border-radius: 24px;
+  margin: 1rem auto;
+  display: block;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: "Reem Kufi", sans-serif;
+  padding: 1rem;
+}
+.trainingName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  background: #7297b9;
+  box-shadow: 0px 4px 4px rgba(88, 114, 112, 0.48);
+  border-radius: 24px;
+  border: #476489 solid 1px;
+  box-sizing: border-box;
+  font-family: "Reem Kufi", sans-serif;
+  margin: 4vh auto;
+  max-width: 55vh;
+}
+
+.title {
+  margin: 0.5rem 0 -1rem 0;
+  font-size: 1.5rem;
+  font-weight: 550;
+  /* color: #478189;  */
+}
+
+.container p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.greenLight {
+  background: #b1e4e4;
+}
+.greenDark {
+  background: #478189;
+}
+.blueLight {
+  background: #bce2fd;
+}
+.blueDark {
+  background: #5ebdff;
+}
+.red {
+  background: #ef717a;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.msg {
+  max-width: 60vh;
+  margin: 8vh auto;
+}
+@media only screen and (min-width: 960px) {
+  .container {
+    height: 11rem;
+    max-width: 60vh;
+    border-radius: 25px;
+    margin: 1rem auto;
+    padding: 2.2rem 0 0 0;
+  }
+  .trainingName {
+    height: 5rem;
+    margin: 4vh auto;
+    max-width: 60vh;
+    font-size: 1.15rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .trainingName {
+    height: 6rem;
+    max-width: 65vh;
+    font-size: 1.6rem;
+  }
+  .container {
+    height: 14rem;
+    max-width: 65vh;
+    margin: 1.2rem auto;
+    padding: 2rem 0rem 5rem 0rem;
+  }
+  .container p {
+    font-size: 1.6rem;
+    margin: 0rem auto 0.5rem auto;
+  }
+  .container h3 {
+    font-size: 1.8rem;
+    margin: 0rem auto 0.3rem auto;
+  }
+}

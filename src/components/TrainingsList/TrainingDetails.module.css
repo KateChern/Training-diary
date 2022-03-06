@@ -1,37 +1,97 @@
-
 .container {
-    display: block;
-    text-align: center;
-    padding: 1rem 22px 2rem 22px;
-    font-size: 0.8rem;
-    background: rgba(71, 129, 137, 0.54);
-    border-radius: 30px;
-    margin: 0 0 2rem 0;
+  display: block;
+  text-align: center;
+  padding: 1rem 22px 4rem 22px;
+  font-size: 0.8rem;
+  background: rgba(71, 129, 137, 0.54);
+  border-radius: 30px;
+  margin: 0 0 -25px 0;
 }
 ol {
-    padding: 0 ;
-    margin: 2rem auto;
+  padding: 0;
+  margin: 2rem auto;
 }
-li {
-   display: flex; 
-   justify-content: space-between;
-   text-align: left ;
-   background: rgba(54, 107, 114, 0.54);
-   margin: 10px -5px;
-   border-radius: 10px;
-   padding: 5px 10px;
-   font-size: 0.9rem;
+.list li {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  background: rgba(54, 107, 114, 0.54);
+  margin: 10px 0px;
+  border-radius: 10px;
+  padding: 5px 50px;
+  font-size: 0.9rem;
 }
 
 .description {
-    text-align: left ;
-    line-height: 1.5rem; 
-    background: rgba(65, 113, 119, 0.54);
-    margin: 10px -5px;
-    border-radius: 10px;
-    padding: 20px 5px;
-    font-size: 0.8rem;
+  text-align: left;
+  line-height: 1.5rem;
+  background: rgba(71, 119, 126, 0.54);
+  margin: 10px -5px;
+  border-radius: 10px;
+  padding: 20px 50px;
+  font-size: 1rem;
 }
 .title {
-    margin: 1.5rem auto;
+  margin: 1.5rem auto;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  padding: 0px 0px 50px 0px;
+  align-content: center;
+}
+.msg {
+  max-width: 60vh;
+  margin: 8vh auto;
+}
+
+@media only screen and (min-width: 960px) {
+  .container {
+    max-width: 55%;
+    margin: 0 auto;
+    padding: 5vh 5vh;
+    font-size: 1rem;
+  }
+  .list p {
+    font-size: 1.1rem;
+  }
+  .description {
+    font-size: 1.1rem;
+    padding: 60px 50px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 40%;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .container h3 {
+    font-size: 1.8rem;
+    margin: 4rem auto;
+  }
+  p.exercise-name {
+    font-size: 1.5rem;
+  }
+  p.exercise-repeats {
+    font-size: 1.5rem;
+  }
+  .description {
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+  }
+}
+@media only screen and (max-device-width: 600px) {
+  .list li {
+    display: flex;
+    flex-direction: column;
+  }
+  .exercise-name {
+    text-align: center;
+  }
+  .exercise-repeats {
+    text-align: center;
+    font-size: 0.8rem;
+  }
 }

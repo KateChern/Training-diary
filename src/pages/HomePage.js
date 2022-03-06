@@ -1,7 +1,12 @@
-import StartingPageContent from '../components/StartingPage/StartingPageContent';
-
+import StartingPageContent from "../components/StartingPage/StartingPageContent";
+import SecondNavigationBar from "../components/Layout/SecondsNavigation/SecondNavigationBar";
 const HomePage = () => {
-  return <StartingPageContent />;
+  return (
+    <>
+      <SecondNavigationBar />
+      <StartingPageContent />;
+    </>
+  );
 };
 
 export default HomePage;
