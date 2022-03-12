@@ -10,6 +10,12 @@ input[type="range"] {
   cursor: pointer;
   width: 100%;
 } */
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+}
 input[type="range"]::-webkit-slider-runnable-track {
   width: 60%;
   height: 1px;
@@ -55,7 +61,7 @@ input[type="range"]::-ms-track {
   width: 35px;
   height: 35px;
   background: url("../../../icons/fire.svg");
-
+  background-position: bottom;
   cursor: pointer;
   margin-top: -33px;
 }
