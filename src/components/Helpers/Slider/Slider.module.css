@@ -53,7 +53,7 @@ input[type="range"]::-moz-range-thumb {
   height: 35px;
   background: url("../../../icons/fire.svg");
   cursor: pointer;
-  margin-top: -33px;
+  /* margin-top: -33px; */
 }
 input[type="range"]::-ms-thumb {
   appearance: none;
