@@ -1,4 +1,4 @@
-import AccountInfo from "../components/Profile/account-info/AccountInfo";
+import AccountInfo from "../components/Profile/AccountInfo";
 import React from "react";
 import SecondNavigationBar from "../components/Layout/SecondsNavigation/SecondNavigationBar";
 

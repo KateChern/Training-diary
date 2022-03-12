@@ -5,7 +5,7 @@ import { useEffect, useState, useCallback, useContext } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore/lite";
 import db from "../../firebase-functions/firebase";
-import TrainingDetailsCard from "../Trainings/trainingDetailsCard";
+import TrainingDetailsCard from "./trainingDetailsCard";
 import SubmittedForm from "../Helpers/SubmittedFormMessage/SubmittedForm";
 import { v4 as uuidv4 } from "uuid";
 import TrainingsContext from "../../store/trainingsStore/trainings-context";

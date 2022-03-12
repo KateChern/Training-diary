@@ -8,6 +8,8 @@
 .msg {
   max-width: 60vh;
   margin: 8vh auto;
+  display: flex;
+  justify-content: center;
 }
 .listContainer {
   background: rgba(116, 108, 108, 0.54);
@@ -18,11 +20,11 @@
 }
 @media only screen and (min-width: 960px) {
   .header {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: rgb(44, 44, 44);
   }
   .msg {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .trainingName {
     height: 5rem;
@@ -33,7 +35,7 @@
 
 @media only screen and (min-width: 1440px) {
   .header {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   .trainingName {
     height: 6rem;
@@ -41,7 +43,7 @@
     font-size: 1.6rem;
   }
   .msg {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     text-align: center;
   }
 }

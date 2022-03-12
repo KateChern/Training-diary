@@ -1,5 +1,6 @@
-import TrainingCard from "../../TrainingsList/TrainingCard";
-import classes from "../AllUserTrainings/AllUserTrainings.module.css";
+import TrainingItem from "../TrainingsList/TrainingItem";
+import classes from "./AllUserTrainings.module.css";
+
 const TrainingsFromCalendar = ({ userTrainings, error }) => {
   const context = error ? (
     <p className={classes.msg}>
@@ -10,7 +11,7 @@ const TrainingsFromCalendar = ({ userTrainings, error }) => {
   ) : (
     <div className={classes.listContainer}>
       {userTrainings.map((training, index) => (
-        <TrainingCard training={training} key={index} />
+        <TrainingItem training={training} key={index} />
       ))}
     </div>
   );

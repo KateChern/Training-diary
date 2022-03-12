@@ -1,15 +1,15 @@
 import React, { Fragment } from "react";
-import Modal from "../../Helpers/Modal/Modal";
+import Modal from "../Helpers/Modal/Modal";
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore/lite";
-import db from "../../../firebase-functions/firebase";
-import TrainingDetailsCard from "../../Trainings/trainingDetailsCard";
-import TrainingsContext from "../../../store/trainingsStore/trainings-context";
+import db from "../../firebase-functions/firebase";
+import TrainingDetailsCard from "../TrainingsList/trainingDetailsCard";
+import TrainingsContext from "../../store/trainingsStore/trainings-context";
 import { v4 as uuidv4 } from "uuid";
-import SubmittedForm from "../../Helpers/SubmittedFormMessage/SubmittedForm";
-import classes from "../../Helpers/SubmittedFormMessage/SubmittedForm.module.css";
+import SubmittedForm from "../Helpers/SubmittedFormMessage/SubmittedForm";
+import classes from "../Helpers/SubmittedFormMessage/SubmittedForm.module.css";
 
 const SelectedUserTraining = () => {
   const auth = getAuth();

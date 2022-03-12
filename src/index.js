@@ -9,9 +9,7 @@ import reportWebVitals from "./reportWebVitals";
 ReactDOM.render(
   // <AuthContextProvider>
   <React.StrictMode>
-    <div>
-      <App />
-    </div>
+    <App />
   </React.StrictMode>,
   // </AuthContextProvider>
 

@@ -11,11 +11,6 @@ const ProgramsContext = React.createContext({
   exercises: [],
   addExerciseToDB: (exercise) => {},
   removeExercise: (id) => {},
-
-  // userTrainings:[],
-  // addTraining: (training) => {},
-  // removeTraining: (id) => {},
-  // editTraining: (training) => {}
 });
 
 export default ProgramsContext;

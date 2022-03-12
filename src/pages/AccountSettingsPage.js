@@ -1,6 +1,6 @@
-import AccountSettings from "../components/Profile/account-settings.js/AccountSettings";
 import React from "react";
 import SecondNavigationBar from "../components/Layout/SecondsNavigation/SecondNavigationBar";
+import AccountSettings from "../components/Profile/AccountSettings";
 
 const AccountSettingsPage = () => {
   return (

@@ -4,7 +4,7 @@ import cx from "classnames";
 import { Link } from "react-router-dom";
 import classes from "../Programs/program-details/ProgramsDetails.module.css";
 
-const TrainingCard = ({ training }) => {
+const TrainingItem = ({ training }) => {
   const fireBaseTime = new Date(
     training.date.seconds * 1000 + training.date.nanoseconds / 1000000
   );
@@ -34,4 +34,4 @@ const TrainingCard = ({ training }) => {
   );
 };
 
-export default TrainingCard;
+export default TrainingItem;

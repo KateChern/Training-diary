@@ -2,8 +2,8 @@ import { Fragment, useCallback, useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import classes from "./AccountInfo.module.css";
 import { Link } from "react-router-dom";
-import UpdateButton from "../../Helpers/ActionButton/ActionButton";
-import { fetchUser } from "../../../firebase-functions/getUserProfileData";
+import UpdateButton from "../Helpers/ActionButton/ActionButton";
+import { fetchUser } from "../../firebase-functions/getUserProfileData";
 const profileData = [
   {
     firstName: "",

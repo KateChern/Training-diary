@@ -49,6 +49,10 @@ nav img {
   /* font-weight: bold; */
 }
 @media only screen and (min-width: 960px) {
+  .header {
+    height: 5rem;
+    justify-content: space-evenly;
+  }
   .navigationContainer {
     margin-left: 20vh;
   }
@@ -61,21 +65,17 @@ nav img {
   }
 }
 @media only screen and (min-width: 1440px) {
-  .header {
-    height: 6rem;
-    justify-content: space-around;
-  }
   .navigationContainer {
     margin-left: 0;
   }
   .loginLogout {
     margin-right: 0;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   .logo {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
   .navigationContainer img {
-    height: 3rem;
+    height: 2.5rem;
   }
 }

@@ -1,4 +1,4 @@
-import classes from "../profile-links/UserProfileLinks.module.css";
+import classes from "./UserProfileLinks.module.css";
 import { Link } from "react-router-dom";
 
 const AccountSettings = () => {

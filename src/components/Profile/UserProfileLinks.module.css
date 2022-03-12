@@ -19,7 +19,6 @@
   border-radius: 20px;
   width: 29vh;
   height: 7vh;
-  /* transform: rotate(0.1deg); */
 }
 p {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -28,12 +27,12 @@ p {
 
 @media only screen and (min-width: 960px) {
   p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 }

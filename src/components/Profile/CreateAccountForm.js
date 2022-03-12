@@ -1,11 +1,11 @@
 import classes from "./CreateAccountForm.module.css";
 import { useState } from "react";
-import useInput from "../../Auth/use-inputs-hook";
+import useInput from "../Auth/use-inputs-hook";
 import { useNavigate } from "react-router-dom";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore/lite";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import db from "../../../firebase-functions/firebase";
-import UpdateButton from "../../Helpers/ActionButton/ActionButton";
+import db from "../../firebase-functions/firebase";
+import UpdateButton from "../Helpers/ActionButton/ActionButton";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const sexOptions = ["F", "M"];

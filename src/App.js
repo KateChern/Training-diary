@@ -68,102 +68,108 @@ function App() {
       <ProgramFetchingProvider>
         <TrainingFetchingProvider>
           <Layout>
-            <Routes>
-              {userState && userData.length === 0 ? (
-                <Route path="/" exact element={<HomePage />} />
-              ) : userState && userData.length !== 0 ? (
-                <Route path="/" exact element={<ProgramsPage />} />
-              ) : (
-                !userState && <Route path="/" element={<AuthPage />} />
-              )}
+            <div className="App">
+              <Routes>
+                {userState && userData.length === 0 ? (
+                  <Route path="/" exact element={<HomePage />} />
+                ) : userState && userData.length !== 0 ? (
+                  <Route path="/" exact element={<ProgramsPage />} />
+                ) : (
+                  !userState && <Route path="/" element={<AuthPage />} />
+                )}
 
-              {!userState && <Route path="/auth" element={<AuthPage />} />}
-              {userState && (
-                <Route path="/profile" element={<ProfileLinksPage />} />
-              )}
-              {userState && (
-                <Route
-                  path="/profile/accounts-settings"
-                  element={<AccountSettingsPage />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/profile/accounts-info"
-                  element={<AccountInfoPage />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/profile/createAccount"
-                  element={<CreateAccountPage />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/profile/updatePassword"
-                  element={<UpdatePasswordPage />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/usertrainings/:trainingId"
-                  exact
-                  element={<SelectedUserTrainingPage />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/trainings/:trainingId"
-                  exact
-                  element={<SingleTrainingCardFromDBPage />}
-                />
-              )}
-              {userState && (
-                <Route path="/ProgramsList" exact element={<ProgramsPage />} />
-              )}
-              {userState && (
-                <Route
-                  path="/ProgramsList/:programName"
-                  element={<TrainingsInProgramList />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/AddingProgramForm"
-                  element={<AddingProgramToDBForm />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/AddingTrainingForm"
-                  element={<AddingTrainingToDBForm />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/userTrainings"
-                  exact
-                  element={<UserTRainingsPage />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/submited-form"
-                  exact
-                  element={<SubmittMessageFormPage />}
-                />
-              )}
-              {userState && (
-                <Route
-                  path="/usertrainings-calendar"
-                  exact
-                  element={<UserTrainingsFromCalendarPage />}
-                />
-              )}
-              {/* {!userState && <Route path="*" element={<AuthPage />} />} */}
-              {userState && <Route path="*" element={<PageNotFoud />} />}
-            </Routes>
+                {!userState && <Route path="/auth" element={<AuthPage />} />}
+                {userState && (
+                  <Route path="/profile" element={<ProfileLinksPage />} />
+                )}
+                {userState && (
+                  <Route
+                    path="/profile/accounts-settings"
+                    element={<AccountSettingsPage />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/profile/accounts-info"
+                    element={<AccountInfoPage />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/profile/createAccount"
+                    element={<CreateAccountPage />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/profile/updatePassword"
+                    element={<UpdatePasswordPage />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/usertrainings/:trainingId"
+                    exact
+                    element={<SelectedUserTrainingPage />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/trainings/:trainingId"
+                    exact
+                    element={<SingleTrainingCardFromDBPage />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/ProgramsList"
+                    exact
+                    element={<ProgramsPage />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/ProgramsList/:programName"
+                    element={<TrainingsInProgramList />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/AddingProgramForm"
+                    element={<AddingProgramToDBForm />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/AddingTrainingForm"
+                    element={<AddingTrainingToDBForm />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/userTrainings"
+                    exact
+                    element={<UserTRainingsPage />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/submited-form"
+                    exact
+                    element={<SubmittMessageFormPage />}
+                  />
+                )}
+                {userState && (
+                  <Route
+                    path="/usertrainings-calendar"
+                    exact
+                    element={<UserTrainingsFromCalendarPage />}
+                  />
+                )}
+
+                {userState && <Route path="*" element={<PageNotFoud />} />}
+              </Routes>
+            </div>
           </Layout>
         </TrainingFetchingProvider>
       </ProgramFetchingProvider>

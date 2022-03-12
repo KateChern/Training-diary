@@ -1,6 +1,6 @@
 import React from "react";
 import SecondNavigationBar from "../components/Layout/SecondsNavigation/SecondNavigationBar";
-import UserTrainings from "../components/UserTrainings/AllUserTrainings/AllUserTrainings";
+import UserTrainings from "../components/UserTrainings/AllUserTrainings";
 
 const UserTRainingsPage = () => {
   return (

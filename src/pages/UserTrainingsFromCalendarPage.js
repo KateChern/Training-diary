@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import TrainingsFromCalendar from "../components/UserTrainings/TrainingsListFromCalendar/TrainingsFromCalendar";
+import TrainingsFromCalendar from "../components/UserTrainings/TrainingsFromCalendar";
 import SecondNavigationBar from "../components/Layout/SecondsNavigation/SecondNavigationBar";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { fetchingTrainings } from "../firebase-functions/getTrainingsFromCalendar";

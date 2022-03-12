@@ -1,5 +1,5 @@
 import React from "react";
-import UserProfileLinks from "../components/Profile/profile-links/UserProfileLinks";
+import UserProfileLinks from "../components/Profile/UserProfileLinks";
 import SecondNavigationBar from "../components/Layout/SecondsNavigation/SecondNavigationBar";
 
 const ProfileLinksPage = () => {

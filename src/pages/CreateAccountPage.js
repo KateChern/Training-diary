@@ -1,4 +1,4 @@
-import CreateAccountForm from "../components/Profile/create-account-form/CreateAccountForm";
+import CreateAccountForm from "../components/Profile/CreateAccountForm";
 import React from "react";
 import SecondNavigationBar from "../components/Layout/SecondsNavigation/SecondNavigationBar";
 

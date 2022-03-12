@@ -1,9 +1,9 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import classes from "./AllUserTrainings.module.css";
-import TrainingCard from "../../TrainingsList/TrainingCard";
+import TrainingItem from "../TrainingsList/TrainingItem";
 import { collection, getDocs, query, where } from "firebase/firestore/lite";
-import db from "../../../firebase-functions/firebase";
+import db from "../../firebase-functions/firebase";
 const UserTrainings = () => {
   const auth = getAuth();
 
@@ -44,7 +44,7 @@ const UserTrainings = () => {
     ) : (
       <div className={classes.listContainer}>
         {userTrainings.map((training, index) => (
-          <TrainingCard training={training} key={index} />
+          <TrainingItem training={training} key={index} />
         ))}
       </div>
     );

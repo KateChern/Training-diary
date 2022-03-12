@@ -1,7 +1,6 @@
 import { useReducer, useCallback } from "react";
 import TrainingsContext from "./trainings-context";
 import { collection, getDocs, query, where } from "firebase/firestore/lite";
-// import { collection, getDocs } from "firebase/firestore/lite";
 import db from "../../firebase-functions/firebase";
 
 const defaultProgramState = {
