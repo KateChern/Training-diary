@@ -42,6 +42,8 @@ input[type="range"]::-webkit-slider-thumb {
   width: 35px;
   height: 35px;
   background: url("../../../icons/fire.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
   cursor: pointer;
   margin-top: -33px;
 }
