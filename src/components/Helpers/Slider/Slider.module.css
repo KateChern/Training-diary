@@ -11,14 +11,44 @@ input[type="range"]::-webkit-slider-runnable-track {
   background: rgb(34, 34, 34);
   border-radius: 3px;
 }
-
+input[type="range"]::-moz-range-track {
+  width: 60%;
+  height: 1px;
+  margin: auto;
+  background: rgb(34, 34, 34);
+  border-radius: 3px;
+}
+input[type="range"]::-ms-track {
+  width: 60%;
+  height: 1px;
+  margin: auto;
+  background: rgb(34, 34, 34);
+  border-radius: 3px;
+}
 .horizontal-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 35px;
   height: 35px;
   background: url("../../../icons/fire.svg");
-  /* background-position: top; */
+  cursor: pointer;
+  margin-top: -33px;
+}
+.horizontal-slider::-moz-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 35px;
+  height: 35px;
+  background: url("../../../icons/fire.svg");
+  cursor: pointer;
+  margin-top: -33px;
+}
+.horizontal-sliderinput::-ms-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 35px;
+  height: 35px;
+  background: url("../../../icons/fire.svg");
   cursor: pointer;
   margin-top: -33px;
 }
