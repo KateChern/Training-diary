@@ -30,6 +30,7 @@ input[type="range"]::-ms-track {
   width: 60%;
   height: 1px;
   margin: auto;
+
   /* background: rgb(34, 34, 34); */
   border-radius: 3px;
 }
@@ -41,7 +42,7 @@ input[type="range"]::-ms-track {
   cursor: pointer;
   margin-top: -33px;
 }
-.horizontal-slider::-moz-slider-thumb {
+.horizontal-slider::-moz-range-thumb {
   appearance: none;
   width: 35px;
   height: 35px;
@@ -49,11 +50,12 @@ input[type="range"]::-ms-track {
   cursor: pointer;
   margin-top: -33px;
 }
-.horizontal-sliderinput::-ms-slider-thumb {
+.horizontal-sliderinput::-ms-thumb {
   appearance: none;
   width: 35px;
   height: 35px;
   background: url("../../../icons/fire.svg");
+
   cursor: pointer;
   margin-top: -33px;
 }
