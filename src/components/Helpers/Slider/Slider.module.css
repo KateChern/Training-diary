@@ -2,14 +2,26 @@ input[type="range"] {
   -webkit-appearance: none;
   margin-top: 3rem;
   width: 60%;
+  background: transparent;
 }
 
 input[type="range"]:focus {
   outline: none;
 }
-input[type="range"]:focus::-webkit-slider-runnable-track {
+/* input[type="range"]:focus::-webkit-slider-runnable-track {
   background: transparent;
+} */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
 }
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+/* ------------------------------------------------------------------- */
 input[type="range"]::-webkit-slider-runnable-track {
   width: 60%;
   height: 1px;
@@ -24,25 +36,23 @@ input[type="range"]::-moz-range-track {
   background: rgb(34, 34, 34);
   border-radius: 3px;
 }
-
-.horizontal-slider::-webkit-slider-thumb {
+/* ----------------------------------------------------------------------- */
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
   width: 35px;
   height: 35px;
   background: url("../../../icons/fire.svg");
   cursor: pointer;
   margin-top: -33px;
 }
-.horizontal-slider::-moz-range-thumb {
-  appearance: none;
+input[type="range"]::-moz-range-thumb {
   width: 35px;
   height: 35px;
   background: url("../../../icons/fire.svg");
   cursor: pointer;
   margin-top: -33px;
 }
-.horizontal-sliderinput::-ms-thumb {
+input[type="range"]::-ms-thumb {
   appearance: none;
   width: 35px;
   height: 35px;
@@ -51,6 +61,7 @@ input[type="range"]::-moz-range-track {
   cursor: pointer;
   margin-top: -33px;
 }
+/* ------------------------------------------------------------------------------- */
 @media only screen and (min-width: 960px) {
   .horizontal-slider::-webkit-slider-thumb {
     margin-top: -35px;
