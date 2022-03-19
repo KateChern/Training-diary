@@ -6,14 +6,24 @@ import {
   signOut,
 } from "firebase/auth";
 
+const {
+  REACT_APP_apiKey,
+  REACT_APP_authDomain,
+  REACT_APP_databaseURL,
+  REACT_APP_projectId,
+  REACT_APP_storageBucket,
+  REACT_APP_messagingSenderId,
+  REACT_APP_appId,
+} = process.env;
+
 const firebaseConfig = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  databaseURL: process.env.databaseURL,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
+  apiKey: REACT_APP_apiKey,
+  authDomain: REACT_APP_authDomain,
+  databaseURL: REACT_APP_databaseURL,
+  projectId: REACT_APP_projectId,
+  storageBucket: REACT_APP_storageBucket,
+  messagingSenderId: REACT_APP_messagingSenderId,
+  appId: REACT_APP_appId,
 };
 
 const app = initializeApp(firebaseConfig);
