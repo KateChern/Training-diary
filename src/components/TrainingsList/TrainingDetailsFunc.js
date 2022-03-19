@@ -10,6 +10,7 @@ import SubmittedForm from "../Helpers/SubmittedFormMessage/SubmittedForm";
 import { v4 as uuidv4 } from "uuid";
 import TrainingsContext from "../../store/trainingsStore/trainings-context";
 import classes from "../Helpers/SubmittedFormMessage/SubmittedForm.module.css";
+import Confetti from "react-confetti";
 
 const TrainingDetailsFunc = () => {
   const ctx = useContext(TrainingsContext);
@@ -95,6 +96,7 @@ const TrainingDetailsFunc = () => {
   };
   const submittedMessage = "Congratulations on completing the training!";
   if (ctx.loading) return <p className={classes.msg}>Loading...</p>;
+
   return (
     <Fragment>
       <TrainingDetailsCard
@@ -105,9 +107,12 @@ const TrainingDetailsFunc = () => {
         training={training}
       />
       {showMessage && (
-        <Modal onClose={toggleMessage}>
-          <SubmittedForm message={submittedMessage} />
-        </Modal>
+        <>
+          <Confetti />
+          <Modal onClose={toggleMessage}>
+            <SubmittedForm message={submittedMessage} />
+          </Modal>
+        </>
       )}
     </Fragment>
   );

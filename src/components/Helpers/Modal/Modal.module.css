@@ -12,14 +12,14 @@
   position: absolute;
   top: 30%;
   transform: translate(45%, -50%);
-  max-width: 246px;
-  min-width: 240px;
+  max-width: 350px;
+  min-width: 350px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   background-color: rgb(255, 255, 255);
-  padding: 1rem;
+  /* padding: 1rem; */
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;

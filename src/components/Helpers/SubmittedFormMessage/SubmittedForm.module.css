@@ -1,7 +1,7 @@
 .container {
   background: #1c4868;
-  border-radius: 20px;
-  height: 15vh;
+  border-radius: 14px;
+  height: 20vh;
   color: white;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
   margin: auto;
   padding: 0 2vh;
-  max-width: 400vh;
+  max-width: 402vh;
   text-align: center;
 }
 .msg {

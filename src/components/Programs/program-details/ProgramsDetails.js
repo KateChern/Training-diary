@@ -2,22 +2,24 @@ import Slider from "../../Helpers/Slider/Slider";
 // import Slider from "../../Helpers/Slider";
 import classes from "./ProgramsDetails.module.css";
 import cx from "classnames";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TrainingsContext from "../../../store/trainingsStore/trainings-context";
 import { useContext } from "react";
 import { useEffect } from "react";
 
 const ProgramDetails = ({ program }) => {
   const ctx = useContext(TrainingsContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("User Data");
     ctx.fetchTrainings();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={classes.ListContainer}>
-      <p className={classes.trainingName}>{program.programName}</p>
+      <p className={classes.trainingName} onClick={() => navigate(-1)}>
+        {program.programName}
+      </p>
       {program.trainings.map((training, key) => (
         <Link key={key} to={`/trainings/${training.id}`}>
           <div

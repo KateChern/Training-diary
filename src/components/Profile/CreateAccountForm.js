@@ -1,48 +1,79 @@
 import classes from "./CreateAccountForm.module.css";
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import useInput from "../Auth/use-inputs-hook";
 import { useNavigate } from "react-router-dom";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore/lite";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import db from "../../firebase-functions/firebase";
 import UpdateButton from "../Helpers/ActionButton/ActionButton";
+import { fetchUser } from "../../firebase-functions/getUserProfileData";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const sexOptions = ["F", "M"];
 
+const profileData = [
+  {
+    firstName: "",
+    lastName: "",
+    email: "",
+    goalWeight: 0,
+    currentWeight: 0,
+    sex: "",
+  },
+];
+
 const CreateAccountForm = () => {
+  const auth = getAuth();
+  const navigate = useNavigate();
+  let currentUser = auth.currentUser;
   const [sex, setSex] = useState(sexOptions[0]);
   const [currentWeight, setCurrentWeight] = useState(0);
   const [goalWeight, setGoalWeight] = useState(0);
-  const [userState, setUserState] = useState("");
-  const navigate = useNavigate();
-  const {
+  const [uid, setUid] = useState(currentUser.uid);
+  const [userData, setUserData] = useState(profileData);
+  // const [error, setError] = useState(null);
+
+  let {
     value: firstNameValue,
     isValid: firstNameIsValid,
     valueChangeHandler: firstNameChangeHandler,
     reset: resetFirstName,
   } = useInput(isNotEmpty);
-  const {
+  let {
     value: lastNameValue,
     isValid: lastIsValid,
     valueChangeHandler: lastNameChangeHandler,
     reset: resetLastName,
   } = useInput(isNotEmpty);
 
-  const auth = getAuth();
-
   let email;
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      setUserState(user.uid);
+      setUid(user.uid);
       email = user.email;
     } else {
     }
   });
 
+  const fetchUserHandler = useCallback(() => {
+    return fetchUser(uid)
+      .then((response) => {
+        setUserData(response);
+      })
+      .catch((err) => {
+        // setError(err);
+      });
+  }, [uid]);
+
+  useEffect(() => {
+    fetchUserHandler();
+  }, [userData.length, fetchUserHandler]);
+
+  const user =
+    userData && userData.length >= 1 && userData[userData.length - 1];
   const addProfileDate = async () => {
     try {
-      const userProfileCollectionRef = doc(db, `users`, `${userState}`);
+      const userProfileCollectionRef = doc(db, `users`, `${uid}`);
       const docRef = await updateDoc(userProfileCollectionRef, {
         profileData: arrayUnion({
           email: email,
@@ -71,9 +102,14 @@ const CreateAccountForm = () => {
     setCurrentWeight("");
     navigate("/profile/accounts-info");
   };
+  const formTitle =
+    user && user.firstName ? "Update Profile" : "Create Profile";
+
+  firstNameValue = user && user.firstName;
+  lastNameValue = user && user.lastName;
   return (
     <div className={classes.mainContainer}>
-      <h2>Create Your Account</h2>
+      <h2>{formTitle}</h2>
       <div className={classes.form}></div>
       <form onSubmit={submitFormHandler}>
         <div className={classes.action}>
@@ -83,6 +119,7 @@ const CreateAccountForm = () => {
             type="text"
             id="firstName"
             onChange={firstNameChangeHandler}
+            placeholder={user && user.firstName}
           />
         </div>
         <div className={classes.action}>
@@ -92,6 +129,7 @@ const CreateAccountForm = () => {
             type="text"
             id="lastName"
             onChange={lastNameChangeHandler}
+            placeholder={user && user.lastName}
           />
         </div>
         <div className={classes.action}>
@@ -111,6 +149,7 @@ const CreateAccountForm = () => {
             type="number"
             id="currentWeight"
             onChange={(e) => setCurrentWeight(e.target.value)}
+            placeholder={user && user.currentWeight}
           />
         </div>
         <div className={classes.action}>
@@ -120,7 +159,7 @@ const CreateAccountForm = () => {
             type="number"
             id="goalWeight"
             onChange={(e) => setGoalWeight(e.target.value)}
-            placeholder="Enter your desired weight here"
+            placeholder={user && user.goalWeight}
           />
         </div>
         <UpdateButton text={"Submit"} />
