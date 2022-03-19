@@ -7,15 +7,14 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: FIREBASE_API_KEY, // eslint-disable-line
-  authDomain: authDomain, // eslint-disable-line
-  databaseURL: databaseURL, // eslint-disable-line
-  projectId: projectId, // eslint-disable-line
-  storageBucket: storageBucket, // eslint-disable-line
-  messagingSenderId: messagingSenderId, // eslint-disable-line
-  appId: appId, // eslint-disable-line
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  databaseURL: process.env.databaseURL,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
 };
-// eslint-disable-line
 
 const app = initializeApp(firebaseConfig);
 
