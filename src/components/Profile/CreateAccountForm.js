@@ -31,7 +31,6 @@ const CreateAccountForm = () => {
   const [goalWeight, setGoalWeight] = useState(0);
   const [uid, setUid] = useState(currentUser.uid);
   const [userData, setUserData] = useState(profileData);
-  // const [error, setError] = useState(null);
 
   let {
     value: firstNameValue,
@@ -60,9 +59,7 @@ const CreateAccountForm = () => {
       .then((response) => {
         setUserData(response);
       })
-      .catch((err) => {
-        // setError(err);
-      });
+      .catch((err) => {});
   }, [uid]);
 
   useEffect(() => {
@@ -71,6 +68,7 @@ const CreateAccountForm = () => {
 
   const user =
     userData && userData.length >= 1 && userData[userData.length - 1];
+
   const addProfileDate = async () => {
     try {
       const userProfileCollectionRef = doc(db, `users`, `${uid}`);
@@ -105,10 +103,6 @@ const CreateAccountForm = () => {
   const formTitle =
     user && user.firstName ? "Update Profile" : "Create Profile";
 
-  firstNameValue =
-    user && user.firstName ? user.firstName : "enter your first name here";
-  lastNameValue =
-    user && user.lastName ? user.lastName : "enter your last name here";
   return (
     <div className={classes.mainContainer}>
       <h2>{formTitle}</h2>
@@ -117,21 +111,29 @@ const CreateAccountForm = () => {
         <div className={classes.action}>
           <label htmlFor="firstName">First Name</label>
           <input
-            value={firstNameValue}
+            value={
+              firstNameValue === "" || firstNameValue !== "  "
+                ? firstNameValue
+                : user.firstName
+            }
             type="text"
             id="firstName"
             onChange={firstNameChangeHandler}
-            placeholder={user && user.firstName}
+            placeholder={"Enter your first name here"}
           />
         </div>
         <div className={classes.action}>
           <label htmlFor="lastName">Last Name</label>
           <input
-            value={lastNameValue}
+            value={
+              lastNameValue === "" || lastNameValue !== "  "
+                ? lastNameValue
+                : user.lastName
+            }
             type="text"
             id="lastName"
             onChange={lastNameChangeHandler}
-            placeholder={user && user.lastName}
+            placeholder={"Enter your last name here"}
           />
         </div>
         <div className={classes.action}>

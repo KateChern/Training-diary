@@ -63,7 +63,6 @@ const SelectedUserTraining = () => {
 
   const currentTime = new Date();
   const difLevel = (value) => {
-    console.log(level);
     setLevel((prevValue) => value);
   };
 
