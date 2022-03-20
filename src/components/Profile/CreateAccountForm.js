@@ -105,8 +105,10 @@ const CreateAccountForm = () => {
   const formTitle =
     user && user.firstName ? "Update Profile" : "Create Profile";
 
-  firstNameValue = user && user.firstName;
-  lastNameValue = user && user.lastName;
+  firstNameValue =
+    user && user.firstName ? user.firstName : "enter your first name here";
+  lastNameValue =
+    user && user.lastName ? user.lastName : "enter your last name here";
   return (
     <div className={classes.mainContainer}>
       <h2>{formTitle}</h2>
