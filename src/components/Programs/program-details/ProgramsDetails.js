@@ -1,5 +1,4 @@
 import Slider from "../../Helpers/Slider/Slider";
-// import Slider from "../../Helpers/Slider";
 import classes from "./ProgramsDetails.module.css";
 import cx from "classnames";
 import { Link, useNavigate } from "react-router-dom";

@@ -31,6 +31,7 @@ h2 {
 .action input,
 .action select {
   background: #d0cece;
+  border: 1px solid #ccc;
   border-radius: 20px;
   width: 29vh;
   height: 4.5vh;
@@ -38,6 +39,14 @@ h2 {
   text-align: center;
   font-family: Raleway;
   font-size: 0.9rem;
+}
+.invalid input {
+  border: 1px solid #b40e0e;
+}
+
+.invalid input:focus {
+  border: 1px solid #ff8800;
+  /* border-color: #ff8800; */
 }
 option {
   font-family: Raleway;

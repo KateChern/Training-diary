@@ -1,16 +1,18 @@
 import classes from "./CreateAccountForm.module.css";
 import { useState, useCallback, useEffect } from "react";
 import useInput from "../Auth/use-inputs-hook";
+import useWeightInput from "../Auth/use-weight-hook";
 import { useNavigate } from "react-router-dom";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore/lite";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import db from "../../firebase-functions/firebase";
 import UpdateButton from "../Helpers/ActionButton/ActionButton";
 import { fetchUser } from "../../firebase-functions/getUserProfileData";
+import cx from "classnames";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const sexOptions = ["F", "M"];
-
+const weightIsValid = (value) => typeof value === "number" && value > 0;
 const profileData = [
   {
     firstName: "",
@@ -27,8 +29,7 @@ const CreateAccountForm = () => {
   const navigate = useNavigate();
   let currentUser = auth.currentUser;
   const [sex, setSex] = useState(sexOptions[0]);
-  const [currentWeight, setCurrentWeight] = useState(0);
-  const [goalWeight, setGoalWeight] = useState(0);
+  const [error, setError] = useState(null);
   const [uid, setUid] = useState(currentUser.uid);
   const [userData, setUserData] = useState(profileData);
 
@@ -37,14 +38,31 @@ const CreateAccountForm = () => {
     isValid: firstNameIsValid,
     valueChangeHandler: firstNameChangeHandler,
     reset: resetFirstName,
+    hasError: firstNameValueHasError,
+    inputBlurHandler: firstNameBlurHandler,
   } = useInput(isNotEmpty);
   let {
     value: lastNameValue,
     isValid: lastIsValid,
     valueChangeHandler: lastNameChangeHandler,
     reset: resetLastName,
+    hasError: lastNameValueHasError,
+    inputBlurHandler: lastNameBlurHandler,
   } = useInput(isNotEmpty);
-
+  let {
+    valueChangeHandler: setCurrentWeight,
+    value: currentWeight,
+    isValid: currentWeightIsValid,
+    hasError: currentWeightHasError,
+    inputBlurHandler: currentWeightBlurHandler,
+  } = useWeightInput(weightIsValid);
+  let {
+    isValid: goalWeightIsValid,
+    valueChangeHandler: setGoalWeight,
+    value: goalWeight,
+    hasError: goalWeightHasError,
+    inputBlurHandler: goalWeightBlurHandler,
+  } = useWeightInput(weightIsValid);
   let email;
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -86,54 +104,64 @@ const CreateAccountForm = () => {
       return docRef;
     } catch (e) {}
   };
-  const formIsValid = firstNameIsValid & lastIsValid;
+  const formIsValid =
+    firstNameIsValid & lastIsValid & currentWeightIsValid & goalWeightIsValid;
 
   const submitFormHandler = (event) => {
     event.preventDefault();
     if (!formIsValid) {
+      setError("Enter valid details");
       return;
     }
+    setError(null);
     addProfileDate();
     resetFirstName();
     resetLastName();
-    setGoalWeight("");
-    setCurrentWeight("");
     navigate("/profile/accounts-info");
   };
+  const firstNameClasses = firstNameValueHasError
+    ? cx(classes["action"], classes["invalid"])
+    : classes["action"];
+
+  const lastNameClasses = lastNameValueHasError
+    ? cx(classes["action"], classes["invalid"])
+    : classes["action"];
+
+  const currentWeightClasses = currentWeightHasError
+    ? cx(classes["action"], classes["invalid"])
+    : classes["action"];
+  const goalWeightClasses = goalWeightHasError
+    ? cx(classes["action"], classes["invalid"])
+    : classes["action"];
+
   const formTitle =
     user && user.firstName ? "Update Profile" : "Create Profile";
 
   return (
     <div className={classes.mainContainer}>
-      <h2>{formTitle}</h2>
+      <h2 onClick={() => navigate(-1)}>{formTitle}</h2>
       <div className={classes.form}></div>
       <form onSubmit={submitFormHandler}>
-        <div className={classes.action}>
+        <div className={firstNameClasses}>
           <label htmlFor="firstName">First Name</label>
           <input
-            value={
-              firstNameValue === "" || firstNameValue !== "  "
-                ? firstNameValue
-                : user.firstName
-            }
+            value={firstNameValue}
             type="text"
             id="firstName"
             onChange={firstNameChangeHandler}
             placeholder={"Enter your first name here"}
+            onBlur={firstNameBlurHandler}
           />
         </div>
-        <div className={classes.action}>
+        <div className={lastNameClasses}>
           <label htmlFor="lastName">Last Name</label>
           <input
-            value={
-              lastNameValue === "" || lastNameValue !== "  "
-                ? lastNameValue
-                : user.lastName
-            }
+            value={lastNameValue}
             type="text"
             id="lastName"
             onChange={lastNameChangeHandler}
             placeholder={"Enter your last name here"}
+            onBlur={lastNameBlurHandler}
           />
         </div>
         <div className={classes.action}>
@@ -146,26 +174,29 @@ const CreateAccountForm = () => {
             ))}
           </select>
         </div>
-        <div className={classes.action}>
+        <div className={currentWeightClasses}>
           <label htmlFor="currentWeight">Current Weight</label>
           <input
-            value={currentWeight}
+            value={currentWeight === 0 ? "" : currentWeight}
             type="number"
             id="currentWeight"
-            onChange={(e) => setCurrentWeight(e.target.value)}
+            onChange={setCurrentWeight}
             placeholder={user && user.currentWeight}
+            onBlur={currentWeightBlurHandler}
           />
         </div>
-        <div className={classes.action}>
+        <div className={goalWeightClasses}>
           <label htmlFor="goalWeight">Desired Weight</label>
           <input
-            value={goalWeight}
+            value={goalWeight === 0 ? "" : goalWeight}
             type="number"
             id="goalWeight"
-            onChange={(e) => setGoalWeight(e.target.value)}
+            onChange={setGoalWeight}
             placeholder={user && user.goalWeight}
+            onBlur={goalWeightBlurHandler}
           />
         </div>
+        {error && <p className={classes.msg}>{error}</p>}
         <UpdateButton text={"Submit"} />
       </form>
     </div>

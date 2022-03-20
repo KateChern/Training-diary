@@ -60,14 +60,18 @@ const AuthForm = () => {
             navigate("/ProgramsList");
           })
           .catch((err) => {
-            console.log(err);
-            setError(err);
             navigate("/auth");
+            if (err.message === "Firebase: Error (auth/user-not-found).") {
+              setError(
+                "Email is not registered, Create an account or enter an existing Email"
+              );
+            } else {
+              setError(err.message);
+            }
           })
       : registerWithEmailAndPassword(auth, emailValue, passwordValue)
           .then((response) => {
             const userUid = response.user.uid;
-            console.log(response.user);
             if (response && !isLogin) {
               const addUser = async () => {
                 try {
@@ -81,7 +85,6 @@ const AuthForm = () => {
                   return docRef;
                 } catch (e) {
                   setError(e);
-                  console.error("Error adding document: ", e);
                 }
               };
               addUser();
