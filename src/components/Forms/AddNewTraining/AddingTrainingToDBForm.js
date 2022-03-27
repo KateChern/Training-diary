@@ -13,9 +13,10 @@ import {
 import db from "../../../firebase-functions/firebase";
 
 const prList = [
-  "beautiful ad stunning 2.0",
-  "beautiful booty 1.0",
-  "beautiful booty 3.0",
+  "Beautiful and firm 1.0",
+  "Beautiful and firm 2.0",
+  "Slimming marathon 1.0",
+  "Slimming marathon 2.0",
 ];
 const typeList = ["Leg Day", "Top Day", "Interval", "Cardio Day", "Mixed day"];
 const isNotEmpty = (value) => value.trim() !== "";
